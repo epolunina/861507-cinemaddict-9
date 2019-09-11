@@ -7,34 +7,33 @@ import {createPopup} from './components/popup.js';
 
 // Функция для рендеринга компонент
 const render = (container, template, place) => {
-    container.insertAdjacentHTML(place, template);
-  };
+  container.insertAdjacentHTML(place, template);
+};
 
 const header = document.querySelector(`.header`);
 const main = document.querySelector(`.main`);
 const footer = document.querySelector(`.footer`);
 const extra = document.querySelector(`.filmListExtra`);
 
-//отрисовка элементов
+// отрисовка элементов
 render(header, createSearch(), `beforeend`);
 render(header, createUserRank(), `beforeend`);
 
 
-
 render(main, createMenu(), `beforeend`);
-render(main, createSortingLing(), `beforeend`);
-render(main, createContent(), `beforeend`);
+render(main, createButtonShowmore(), `beforeend`);
+render(main, createPopup(), `beforeend`);
 render(main, createButtonShowmore(), `beforeend`);
 
-//Отрисовка карточки 5 раз
+// Отрисовка карточки 5 раз
 for (let i = 0; i < 5; i++) {
-  render(filmContainer, createCard(), `beforeend`);
+  render(main, createCard(), `beforeend`);
 }
 
 
-  for (let i = 0; i < 2; i++) {
-    render(extraListContainer, createCard(), `beforeend`);
-  }
+for (let i = 0; i < 2; i++) {
+  render(extra, createCard(), `beforeend`);
+}
 
 render(main, createCard(), `beforeend`);
 
